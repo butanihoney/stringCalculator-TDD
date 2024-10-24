@@ -18,4 +18,15 @@ describe("StringCalculator", () => {
         expect(add("//, \n1,2,3")).toBe(6);
     });
 
+    it("should throw an error for negative numbers", () => {
+        expect(() => add("1,-2,3")).toThrow("Negative numbers not allowed: -2");
+    });
+
+    it("should handle a mixture of delimiters (commas, newlines, custom)", () => {
+        expect(add("//;\n1,2\n3;4")).toBe(10);
+    });
+
+    it("should ignore non-number strings", () => {
+        expect(add("1,a,2")).toBe(3);
+    });
 });

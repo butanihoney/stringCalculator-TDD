@@ -4,7 +4,7 @@ export function add(numbers) {
         return 0;
     }
 
-    let delimiter; // Default delimiters are comma and newline
+    let delimiter;
     if (numbers.startsWith("//")) {
         // Extract custom delimiter
         const delimiterEndIndex = numbers.indexOf("\n");
@@ -19,6 +19,13 @@ export function add(numbers) {
         .map(num => num.trim())
         .filter(num => num !== '' && !isNaN(num)) // Filter out invalid numbers
         .map(Number);
+
+
+    // Check for negative numbers
+    const negatives = newString.filter(num => num < 0);
+    if (negatives.length > 0) {
+        throw new Error(`Negative numbers not allowed: ${negatives.join(', ')}`);
+    }
 
     const sum = newString.reduce((acc, curr) => acc + curr, 0);
 
