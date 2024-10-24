@@ -6,8 +6,6 @@ const StringCalculator = () => {
     const [input, setInput] = useState('');
     const [result, setResult] = useState('');
 
-
-
     const handleCalculate = () => {
         try {
             const sum = add(input);
@@ -20,7 +18,7 @@ const StringCalculator = () => {
     return (
         <div className='container'>
             <h1>String Calculator</h1>
-            <input
+            <textarea
                 className='input'
                 type="text"
                 value={input}
@@ -34,7 +32,5 @@ const StringCalculator = () => {
         </div>
     );
 };
-
-
 
 export default StringCalculator;

@@ -9,4 +9,9 @@ describe("StringCalculator", () => {
     it("should return the sum of comma-separated numbers", () => {
         expect(add("1,2,3")).toBe(6);
     });
+
+    it("should return the sum of newline-separated numbers", () => {
+        expect(add("1\n2\n3")).toBe(6);
+    });
+
 });
